@@ -15,15 +15,11 @@ export class UserService {
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) {}
 
   private getHeaders(): HttpHeaders {
-    const token = this.getAuthTokenFromCookie(); // Implement this method to get the token from cookies
+    const token = this.cookieService.get('access_token') || '';
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     });
-  }
-
-  private getAuthTokenFromCookie(): string {
-    return this.cookieService.get('access_token') || '';
   }
 
   login(credentials: any): Observable<any> {
