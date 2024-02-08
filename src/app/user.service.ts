@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8000/api';
+  private apiUrl = 'https://user-management-susi.onrender.com';
 
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) {}
 
